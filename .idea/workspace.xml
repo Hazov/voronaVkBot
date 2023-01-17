@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fc05f7f5-8e53-432d-ada4-bfab249e2e2b" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1xrpqjY2F57U05ArpTaiB5HRlbN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cynteka_main2332" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.31494254" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.voronavk.entities" />
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$/src/main/entities" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.VkBot">
+    <configuration name="Css" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Css" />
+      <module name="NewBot" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VkBot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.voronavk.VkBot" />
+      <module name="NewBot" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.VkBot" />
+        <item itemvalue="Application.Css" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc05f7f5-8e53-432d-ada4-bfab249e2e2b" name="Changes" comment="" />
+      <created>1631123255632</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1631123255632</updated>
+      <workItem from="1673341754128" duration="591000" />
+      <workItem from="1673342411506" duration="2812000" />
+      <workItem from="1673346650873" duration="3676000" />
+      <workItem from="1673363291718" duration="597000" />
+      <workItem from="1673370948297" duration="20881000" />
+      <workItem from="1673454293572" duration="31553000" />
+      <workItem from="1673512908105" duration="35517000" />
+      <workItem from="1673624732251" duration="2131000" />
+      <workItem from="1673629018814" duration="429000" />
+      <workItem from="1673629460468" duration="14416000" />
+      <workItem from="1673647082510" duration="79321000" />
+      <workItem from="1673889941913" duration="10914000" />
+      <workItem from="1673905831257" duration="7000" />
+      <workItem from="1673918752498" duration="5666000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="862" y="419" width="188" height="215" key="#Assign_Data_Sources" timestamp="1673766158421">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="862" y="419" width="188" height="215" key="#Assign_Data_Sources/0.0.1920.1052@0.0.1920.1052" timestamp="1673766158421" />
+    <state x="589" y="207" width="734" height="638" key="#Inspections" timestamp="1673646818992">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="589" y="207" width="734" height="638" key="#Inspections/0.0.1920.1052@0.0.1920.1052" timestamp="1673646818992" />
+    <state x="418" y="184" width="820" height="678" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1673736834054">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="418" y="184" width="820" height="678" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1052@0.0.1920.1052" timestamp="1673736834054" />
+    <state x="768" y="213" width="376" height="707" key="#com.intellij.ide.util.MemberChooser" timestamp="1673807631907">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="768" y="213" width="376" height="707" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1052@0.0.1920.1052" timestamp="1673807631907" />
+    <state x="720" y="447" width="464" height="181" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath" timestamp="1673647588367">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="720" y="447" width="464" height="181" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath/0.0.1920.1052@0.0.1920.1052" timestamp="1673647588367" />
+    <state x="616" y="453" width="687" height="146" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1673735299500">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="616" y="453" width="687" height="146" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1052@0.0.1920.1052" timestamp="1673735299500" />
+    <state x="743" y="410" width="426" height="232" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1673628856662">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="743" y="410" width="426" height="232" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1052@0.0.1920.1052" timestamp="1673628856662" />
+    <state x="781" y="104" width="342" height="846" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1673904713045">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="781" y="104" width="342" height="846" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1052@0.0.1920.1052" timestamp="1673904713045" />
+    <state x="693" y="276" width="526" height="501" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1673831239007">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="693" y="276" width="526" height="501" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1052@0.0.1920.1052" timestamp="1673831239007" />
+    <state x="563" y="264" width="1118" height="569" key="#xdebugger.evaluate" timestamp="1673830532958">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="563" y="264" width="1118" height="569" key="#xdebugger.evaluate/0.0.1920.1052@0.0.1920.1052" timestamp="1673830532958" />
+    <state width="718" height="465" key="DebuggerActiveHint" timestamp="1673829837280">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state width="718" height="465" key="DebuggerActiveHint/0.0.1920.1052@0.0.1920.1052" timestamp="1673829837280" />
+    <state x="743" y="284" width="426" height="485" key="FileChooserDialogImpl" timestamp="1673905835988">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="743" y="284" width="426" height="485" key="FileChooserDialogImpl/0.0.1920.1052@0.0.1920.1052" timestamp="1673905835988" />
+    <state width="1878" height="28" key="GridCell.Tab.0.bottom" timestamp="1673850841192">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state width="1878" height="28" key="GridCell.Tab.0.bottom/0.0.1920.1052@0.0.1920.1052" timestamp="1673850841192" />
+    <state width="1878" height="28" key="GridCell.Tab.0.center" timestamp="1673850841191">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state width="1878" height="28" key="GridCell.Tab.0.center/0.0.1920.1052@0.0.1920.1052" timestamp="1673850841191" />
+    <state width="1878" height="28" key="GridCell.Tab.0.left" timestamp="1673850841190">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state width="1878" height="28" key="GridCell.Tab.0.left/0.0.1920.1052@0.0.1920.1052" timestamp="1673850841190" />
+    <state width="1878" height="28" key="GridCell.Tab.0.right" timestamp="1673850841192">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state width="1878" height="28" key="GridCell.Tab.0.right/0.0.1920.1052@0.0.1920.1052" timestamp="1673850841192" />
+    <state width="1878" height="28" key="GridCell.Tab.1.bottom" timestamp="1673850841196">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state width="1878" height="28" key="GridCell.Tab.1.bottom/0.0.1920.1052@0.0.1920.1052" timestamp="1673850841196" />
+    <state width="1878" height="28" key="GridCell.Tab.1.center" timestamp="1673850841194">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state width="1878" height="28" key="GridCell.Tab.1.center/0.0.1920.1052@0.0.1920.1052" timestamp="1673850841194" />
+    <state width="1878" height="28" key="GridCell.Tab.1.left" timestamp="1673850841193">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state width="1878" height="28" key="GridCell.Tab.1.left/0.0.1920.1052@0.0.1920.1052" timestamp="1673850841193" />
+    <state width="1878" height="28" key="GridCell.Tab.1.right" timestamp="1673850841195">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state width="1878" height="28" key="GridCell.Tab.1.right/0.0.1920.1052@0.0.1920.1052" timestamp="1673850841195" />
+    <state x="493" y="184" width="926" height="685" key="Maven.ArtifactSearchDialog" timestamp="1673643351005">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="493" y="184" width="926" height="685" key="Maven.ArtifactSearchDialog/0.0.1920.1052@0.0.1920.1052" timestamp="1673643351005" />
+    <state x="443" y="126" width="1211" height="823" key="SettingsEditor" timestamp="1673649116769">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="443" y="126" width="1211" height="823" key="SettingsEditor/0.0.1920.1052@0.0.1920.1052" timestamp="1673649116769" />
+    <state x="735" y="279" width="433" height="517" key="SpringBootCustomization" timestamp="1673647528214">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="735" y="279" width="433" height="517" key="SpringBootCustomization/0.0.1920.1052@0.0.1920.1052" timestamp="1673647528214" />
+    <state width="961" height="526" key="XDebugger.FullValuePopup" timestamp="1673759533563">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state width="961" height="526" key="XDebugger.FullValuePopup/0.0.1920.1052@0.0.1920.1052" timestamp="1673759533563" />
+    <state x="833" y="416" width="324" height="241" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1673748654969">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="833" y="416" width="324" height="241" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1052@0.0.1920.1052" timestamp="1673748654969" />
+    <state x="665" y="275" width="589" height="524" key="find.popup" timestamp="1673812853893">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="665" y="275" width="589" height="524" key="find.popup/0.0.1920.1052@0.0.1920.1052" timestamp="1673812853893" />
+    <state x="376" y="149" width="1159" height="754" key="new project wizard" timestamp="1673640149969">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="376" y="149" width="1159" height="754" key="new project wizard/0.0.1920.1052@0.0.1920.1052" timestamp="1673640149969" />
+    <state x="623" y="240" key="run.anything.popup" timestamp="1673819446222">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="623" y="240" key="run.anything.popup/0.0.1920.1052@0.0.1920.1052" timestamp="1673819446222" />
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1673920876911">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1052@0.0.1920.1052" timestamp="1673920876911" />
+    <state x="643" y="213" key="spring file set editor" timestamp="1673648099925">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="643" y="213" key="spring file set editor/0.0.1920.1052@0.0.1920.1052" timestamp="1673648099925" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/voronavk/utils/ButtonsUtil.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/voronavk/utils/ButtonsUtil.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/voronavk/utils/dialogs/statics/Keyboards.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/voronavk/PrintPhotosDialogManager.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/voronavk/VkBot.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/voronavk/VkBot.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/voronavk/VkBot.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/voronavk/VkBot.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo typeName="org.springframework.beans.factory.support.DefaultListableBeanFactory" fieldName="allBeanNamesByType" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>
