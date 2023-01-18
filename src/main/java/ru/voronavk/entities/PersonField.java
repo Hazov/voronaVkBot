@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.voronavk.utils.hibernate.Hiber;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -26,6 +24,15 @@ public class PersonField {
     String type;
     @Column
     Boolean accessNewIfIsList;
+
+
+    public static void save(PersonField personField){
+        EntityManager em = Hiber.getEntityManager();
+        em.getTransaction().begin();
+        em.persist(personField);
+        em.flush();
+        em.getTransaction().commit();
+    }
 
 
 }

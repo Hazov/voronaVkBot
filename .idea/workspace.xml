@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc05f7f5-8e53-432d-ada4-bfab249e2e2b" name="Changes" comment="" />
+    <list default="true" id="fc05f7f5-8e53-432d-ada4-bfab249e2e2b" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/voronavk/utils/hibernate/initdb/PhasesInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/voronavk/entities/PersonField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/voronavk/entities/PersonField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/voronavk/entities/Phase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/voronavk/entities/Phase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/voronavk/utils/dialogs/statics/Buttons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/voronavk/utils/dialogs/statics/Buttons.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +41,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
@@ -103,12 +129,49 @@
       <workItem from="1673647082510" duration="79321000" />
       <workItem from="1673889941913" duration="10914000" />
       <workItem from="1673905831257" duration="7000" />
-      <workItem from="1673918752498" duration="5666000" />
+      <workItem from="1673918752498" duration="6564000" />
+      <workItem from="1674011974203" duration="947000" />
     </task>
+    <task id="LOCAL-00001" summary="Changes">
+      <created>1673924507527</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673924507527</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="862" y="419" width="188" height="215" key="#Assign_Data_Sources" timestamp="1673766158421">
@@ -151,6 +214,10 @@
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
     <state x="563" y="264" width="1118" height="569" key="#xdebugger.evaluate/0.0.1920.1052@0.0.1920.1052" timestamp="1673830532958" />
+    <state x="481" y="107" width="950" height="839" key="CommitChangelistDialog2" timestamp="1673924507433">
+      <screen x="0" y="0" width="1920" height="1052" />
+    </state>
+    <state x="481" y="107" width="950" height="839" key="CommitChangelistDialog2/0.0.1920.1052@0.0.1920.1052" timestamp="1673924507433" />
     <state width="718" height="465" key="DebuggerActiveHint" timestamp="1673829837280">
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
