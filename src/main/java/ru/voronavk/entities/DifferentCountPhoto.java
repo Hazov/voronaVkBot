@@ -7,7 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "different_count_photo")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,8 +16,8 @@ public class DifferentCountPhoto {
     @Id
     @GeneratedValue
     Long id;
-    @Column
+    @Column(name = "count")
     Integer count;
-    @OneToOne
+    @OneToOne()
     UrlFile urlFile;
 }

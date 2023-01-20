@@ -1387,7 +1387,7 @@ false posixrules
     <database id="2" parent="1" name="botsdb">
       <ObjectId>789271</ObjectId>
       <Owner>equipment</Owner>
-      <IntrospectionStateNumber>5892899</IntrospectionStateNumber>
+      <IntrospectionStateNumber>6116413</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3" parent="1" name="cyn_maindb_custom1">
@@ -1466,7 +1466,7 @@ false posixrules
       <Comment>standard public schema</Comment>
       <StateNumber>526</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>5892900</IntrospectionStateNumber>
+      <IntrospectionStateNumber>6116414</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="22" parent="2" name="heap">
@@ -1537,462 +1537,778 @@ false posixrules
     <language id="32" parent="2" name="plpgsql"/>
     <language id="33" parent="2" name="sql"/>
     <sequence id="34" parent="21" name="hibernate_sequence">
-      <ObjectId>792293</ObjectId>
+      <ObjectId>818689</ObjectId>
       <Owner>equipment</Owner>
-      <StateNumber>5892879</StateNumber>
+      <StateNumber>6116348</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <table id="35" parent="21" name="formatphoto">
-      <ObjectId>792294</ObjectId>
+    <table id="35" parent="21" name="different_count_photo">
+      <ObjectId>818690</ObjectId>
+      <Owner>equipment</Owner>
+      <StateNumber>6116366</StateNumber>
+    </table>
+    <table id="36" parent="21" name="format_photo">
+      <ObjectId>818695</ObjectId>
       <Outdated>1</Outdated>
       <Owner>equipment</Owner>
-      <StateNumber>5892896</StateNumber>
+      <StateNumber>6116375</StateNumber>
     </table>
-    <table id="36" parent="21" name="multiorder">
-      <ObjectId>792299</ObjectId>
-      <Outdated>1</Outdated>
+    <table id="37" parent="21" name="multi_order">
+      <ObjectId>818700</ObjectId>
       <Owner>equipment</Owner>
-      <StateNumber>5892892</StateNumber>
-    </table>
-    <table id="37" parent="21" name="multiorder_printphotomultiorder">
-      <ObjectId>792304</ObjectId>
-      <Owner>equipment</Owner>
-      <StateNumber>5892891</StateNumber>
+      <StateNumber>6116367</StateNumber>
     </table>
     <table id="38" parent="21" name="person">
-      <ObjectId>792307</ObjectId>
+      <ObjectId>818705</ObjectId>
       <Outdated>1</Outdated>
       <Owner>equipment</Owner>
-      <StateNumber>5892893</StateNumber>
+      <StateNumber>6116368</StateNumber>
     </table>
-    <table id="39" parent="21" name="person_state">
-      <ObjectId>792314</ObjectId>
+    <table id="39" parent="21" name="person_field">
+      <ObjectId>818712</ObjectId>
+      <Owner>equipment</Owner>
+      <StateNumber>6116371</StateNumber>
+    </table>
+    <table id="40" parent="21" name="person_state">
+      <ObjectId>818719</ObjectId>
+      <Owner>equipment</Owner>
+      <StateNumber>6116368</StateNumber>
+    </table>
+    <table id="41" parent="21" name="phase">
+      <ObjectId>818724</ObjectId>
+      <Owner>equipment</Owner>
+      <StateNumber>6116370</StateNumber>
+    </table>
+    <table id="42" parent="21" name="phase_person_field">
+      <ObjectId>818731</ObjectId>
+      <Owner>equipment</Owner>
+      <StateNumber>6116371</StateNumber>
+    </table>
+    <table id="43" parent="21" name="print_photo_multi_order">
+      <ObjectId>818734</ObjectId>
+      <Owner>equipment</Owner>
+      <StateNumber>6116367</StateNumber>
+    </table>
+    <table id="44" parent="21" name="print_photo_multi_order_print_photo_order">
+      <ObjectId>818739</ObjectId>
+      <Owner>equipment</Owner>
+      <StateNumber>6116373</StateNumber>
+    </table>
+    <table id="45" parent="21" name="print_photo_order">
+      <ObjectId>818742</ObjectId>
       <Outdated>1</Outdated>
       <Owner>equipment</Owner>
-      <StateNumber>5892893</StateNumber>
+      <StateNumber>6116373</StateNumber>
     </table>
-    <table id="40" parent="21" name="phase">
-      <ObjectId>792319</ObjectId>
-      <Outdated>1</Outdated>
+    <table id="46" parent="21" name="print_photo_order_different_count_photo">
+      <ObjectId>818747</ObjectId>
       <Owner>equipment</Owner>
-      <StateNumber>5892895</StateNumber>
+      <StateNumber>6116376</StateNumber>
     </table>
-    <table id="41" parent="21" name="print_photo_order">
-      <ObjectId>792324</ObjectId>
-      <Outdated>1</Outdated>
+    <table id="47" parent="21" name="print_photo_order_url_file">
+      <ObjectId>818750</ObjectId>
       <Owner>equipment</Owner>
-      <StateNumber>5892896</StateNumber>
+      <StateNumber>6116378</StateNumber>
     </table>
-    <table id="42" parent="21" name="printphotomultiorder">
-      <ObjectId>792329</ObjectId>
-      <Outdated>1</Outdated>
+    <table id="48" parent="21" name="url_file">
+      <ObjectId>818753</ObjectId>
       <Owner>equipment</Owner>
-      <StateNumber>5892891</StateNumber>
+      <StateNumber>6116366</StateNumber>
     </table>
-    <table id="43" parent="21" name="printphotomultiorder_print_photo_order">
-      <ObjectId>792334</ObjectId>
-      <Owner>equipment</Owner>
-      <StateNumber>5892897</StateNumber>
-    </table>
-    <column id="44" parent="35" name="width">
-      <Position>1</Position>
-      <DataType>double precision|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>5892880</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <column id="45" parent="35" name="height">
-      <Position>2</Position>
-      <DataType>double precision|0s</DataType>
-      <StateNumber>5892880</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <index id="46" parent="35" name="formatphoto_pkey">
-      <ObjectId>792297</ObjectId>
-      <StateNumber>5892880</StateNumber>
-      <ColNames>width</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-    </index>
-    <key id="47" parent="35" name="formatphoto_pkey">
-      <ObjectId>792298</ObjectId>
-      <StateNumber>5892880</StateNumber>
-      <ColNames>width</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>formatphoto_pkey</UnderlyingIndexName>
-    </key>
-    <column id="48" parent="36" name="id">
+    <column id="49" parent="35" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>5892881</StateNumber>
+      <StateNumber>6116349</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="49" parent="36" name="comment">
+    <column id="50" parent="35" name="count">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>5892881</StateNumber>
-      <TypeId>1043</TypeId>
+      <DataType>integer|0s</DataType>
+      <StateNumber>6116349</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <column id="50" parent="36" name="person_id">
+    <column id="51" parent="35" name="urlfile_id">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
-      <StateNumber>5892881</StateNumber>
+      <StateNumber>6116349</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="51" parent="36" name="multiorder_pkey">
-      <ObjectId>792302</ObjectId>
-      <StateNumber>5892881</StateNumber>
+    <index id="52" parent="35" name="different_count_photo_pkey">
+      <ObjectId>818693</ObjectId>
+      <StateNumber>6116349</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="52" parent="36" name="multiorder_pkey">
-      <ObjectId>792303</ObjectId>
-      <StateNumber>5892881</StateNumber>
+    <key id="53" parent="35" name="different_count_photo_pkey">
+      <ObjectId>818694</ObjectId>
+      <StateNumber>6116349</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
-      <UnderlyingIndexName>multiorder_pkey</UnderlyingIndexName>
+      <UnderlyingIndexName>different_count_photo_pkey</UnderlyingIndexName>
     </key>
-    <column id="53" parent="37" name="multiorder_id">
+    <foreign-key id="54" parent="35" name="fktby5vge77ytciyvx3pgkpbenc">
+      <ObjectId>818764</ObjectId>
+      <StateNumber>6116366</StateNumber>
+      <ColNames>urlfile_id</ColNames>
+      <RefTableId>818753</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>url_file</RefTableName>
+      <RefKeyName>url_file_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="55" parent="36" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>5892882</StateNumber>
+      <StateNumber>6116350</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="54" parent="37" name="partorders_id">
+    <column id="56" parent="36" name="height">
       <Position>2</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>5892882</StateNumber>
-      <TypeId>20</TypeId>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>6116350</StateNumber>
+      <TypeId>701</TypeId>
     </column>
-    <index id="55" parent="37" name="uk_bm1st1n3avbshh60j68aiwu42">
-      <ObjectId>792337</ObjectId>
-      <StateNumber>5892889</StateNumber>
-      <ColNames>partorders_id</ColNames>
+    <column id="57" parent="36" name="width">
+      <Position>3</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>6116350</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <index id="58" parent="36" name="format_photo_pkey">
+      <ObjectId>818698</ObjectId>
+      <StateNumber>6116350</StateNumber>
+      <ColNames>id</ColNames>
       <Unique>1</Unique>
+      <Primary>1</Primary>
     </index>
-    <key id="56" parent="37" name="uk_bm1st1n3avbshh60j68aiwu42">
-      <ObjectId>792338</ObjectId>
-      <StateNumber>5892889</StateNumber>
-      <ColNames>partorders_id</ColNames>
-      <UnderlyingIndexName>uk_bm1st1n3avbshh60j68aiwu42</UnderlyingIndexName>
+    <key id="59" parent="36" name="format_photo_pkey">
+      <ObjectId>818699</ObjectId>
+      <StateNumber>6116350</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>format_photo_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="57" parent="37" name="fk8fivw8nnxhhu7uv0endt4g21b">
-      <ObjectId>792346</ObjectId>
-      <StateNumber>5892892</StateNumber>
-      <ColNames>multiorder_id</ColNames>
-      <RefTableId>792299</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>multiorder</RefTableName>
-      <RefKeyName>multiorder_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="58" parent="37" name="fk3d3ouesk4d534dunn35tngklw">
-      <ObjectId>792341</ObjectId>
-      <StateNumber>5892891</StateNumber>
-      <ColNames>partorders_id</ColNames>
-      <RefTableId>792329</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>printphotomultiorder</RefTableName>
-      <RefKeyName>printphotomultiorder_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="59" parent="38" name="id">
+    <column id="60" parent="37" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>5892883</StateNumber>
+      <StateNumber>6116351</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="60" parent="38" name="first_name">
+    <column id="61" parent="37" name="comment">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>5892883</StateNumber>
+      <StateNumber>6116351</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="61" parent="38" name="is_subscriber">
+    <column id="62" parent="37" name="person_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>6116351</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="63" parent="37" name="printphotomultiorder_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>6116351</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="64" parent="37" name="multi_order_pkey">
+      <ObjectId>818703</ObjectId>
+      <StateNumber>6116351</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="65" parent="37" name="multi_order_pkey">
+      <ObjectId>818704</ObjectId>
+      <StateNumber>6116351</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>multi_order_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="66" parent="37" name="fkey9rn28gfcjwqphk7kwmge511">
+      <ObjectId>818769</ObjectId>
+      <StateNumber>6116367</StateNumber>
+      <ColNames>printphotomultiorder_id</ColNames>
+      <RefTableId>818734</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>print_photo_multi_order</RefTableName>
+      <RefKeyName>print_photo_multi_order_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="67" parent="38" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116352</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="68" parent="38" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116352</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="69" parent="38" name="is_subscriber">
       <Position>3</Position>
       <DataType>boolean|0s</DataType>
-      <StateNumber>5892883</StateNumber>
+      <StateNumber>6116352</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="62" parent="38" name="last_name">
+    <column id="70" parent="38" name="last_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>5892883</StateNumber>
+      <StateNumber>6116352</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="63" parent="38" name="middle_name">
+    <column id="71" parent="38" name="middle_name">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>5892883</StateNumber>
+      <StateNumber>6116352</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="64" parent="38" name="state_id">
+    <column id="72" parent="38" name="state_id">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
-      <StateNumber>5892883</StateNumber>
+      <StateNumber>6116352</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="65" parent="38" name="person_pkey">
-      <ObjectId>792312</ObjectId>
-      <StateNumber>5892883</StateNumber>
+    <index id="73" parent="38" name="person_pkey">
+      <ObjectId>818710</ObjectId>
+      <StateNumber>6116352</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="66" parent="38" name="person_pkey">
-      <ObjectId>792313</ObjectId>
-      <StateNumber>5892883</StateNumber>
+    <key id="74" parent="38" name="person_pkey">
+      <ObjectId>818711</ObjectId>
+      <StateNumber>6116352</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>person_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="67" parent="38" name="fk905v0r4j5f3p5w299jy2nl1g8">
-      <ObjectId>792351</ObjectId>
-      <StateNumber>5892893</StateNumber>
+    <foreign-key id="75" parent="38" name="fk905v0r4j5f3p5w299jy2nl1g8">
+      <ObjectId>818774</ObjectId>
+      <StateNumber>6116368</StateNumber>
       <ColNames>state_id</ColNames>
-      <RefTableId>792314</RefTableId>
+      <RefTableId>818719</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>person_state</RefTableName>
       <RefKeyName>person_state_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="68" parent="39" name="id">
+    <column id="76" parent="39" name="id">
       <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>5892884</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="69" parent="39" name="in_chat">
-      <Position>2</Position>
-      <DataType>boolean|0s</DataType>
-      <StateNumber>5892884</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="70" parent="39" name="in_order">
-      <Position>3</Position>
-      <DataType>boolean|0s</DataType>
-      <StateNumber>5892884</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="71" parent="39" name="personid">
-      <Position>4</Position>
-      <DataType>bigint|0s</DataType>
-      <StateNumber>5892884</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="72" parent="39" name="start_ts">
-      <Position>5</Position>
-      <DataType>timestamp|0s</DataType>
-      <StateNumber>5892884</StateNumber>
-      <TypeId>1114</TypeId>
-    </column>
-    <column id="73" parent="39" name="currentorder_id">
-      <Position>6</Position>
-      <DataType>bigint|0s</DataType>
-      <StateNumber>5892884</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="74" parent="39" name="orderphase_id">
-      <Position>7</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>5892884</StateNumber>
+      <NotNull>1</NotNull>
+      <StateNumber>6116353</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="75" parent="39" name="person_state_pkey">
-      <ObjectId>792317</ObjectId>
-      <StateNumber>5892884</StateNumber>
+    <column id="77" parent="39" name="accessnewifislist">
+      <Position>2</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6116353</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="78" parent="39" name="class_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116353</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="79" parent="39" name="setter">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116353</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="80" parent="39" name="to_change">
+      <Position>5</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6116353</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="81" parent="39" name="to_check">
+      <Position>6</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6116353</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="82" parent="39" name="type">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116353</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="83" parent="39" name="person_field_pkey">
+      <ObjectId>818717</ObjectId>
+      <StateNumber>6116353</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="76" parent="39" name="person_state_pkey">
-      <ObjectId>792318</ObjectId>
-      <StateNumber>5892884</StateNumber>
+    <key id="84" parent="39" name="person_field_pkey">
+      <ObjectId>818718</ObjectId>
+      <StateNumber>6116353</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>person_field_pkey</UnderlyingIndexName>
+    </key>
+    <column id="85" parent="40" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116354</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="86" parent="40" name="in_chat">
+      <Position>2</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6116354</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="87" parent="40" name="in_order">
+      <Position>3</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6116354</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="88" parent="40" name="person_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>6116354</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="89" parent="40" name="start_ts">
+      <Position>5</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>6116354</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="90" parent="40" name="currentorder_id">
+      <Position>6</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>6116354</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="91" parent="40" name="phase_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>6116354</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="92" parent="40" name="person_state_pkey">
+      <ObjectId>818722</ObjectId>
+      <StateNumber>6116354</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="93" parent="40" name="person_state_pkey">
+      <ObjectId>818723</ObjectId>
+      <StateNumber>6116354</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>person_state_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="77" parent="39" name="fk90k3hwkbx0siieuhwffj0vp03">
-      <ObjectId>792356</ObjectId>
-      <StateNumber>5892894</StateNumber>
+    <foreign-key id="94" parent="40" name="fkjefmx8muh9rwk56pbqlgalgjl">
+      <ObjectId>818779</ObjectId>
+      <StateNumber>6116369</StateNumber>
       <ColNames>currentorder_id</ColNames>
-      <RefTableId>792299</RefTableId>
+      <RefTableId>818700</RefTableId>
       <RefColPositions>1</RefColPositions>
-      <RefTableName>multiorder</RefTableName>
-      <RefKeyName>multiorder_pkey</RefKeyName>
+      <RefTableName>multi_order</RefTableName>
+      <RefKeyName>multi_order_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="78" parent="39" name="fk3kflsvfv6a0wfd4rmkd2ilp24">
-      <ObjectId>792361</ObjectId>
-      <StateNumber>5892895</StateNumber>
-      <ColNames>orderphase_id</ColNames>
-      <RefTableId>792319</RefTableId>
+    <foreign-key id="95" parent="40" name="fktrmfq1opwqxum1y93fc83vgih">
+      <ObjectId>818784</ObjectId>
+      <StateNumber>6116370</StateNumber>
+      <ColNames>phase_id</ColNames>
+      <RefTableId>818724</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>phase</RefTableName>
       <RefKeyName>phase_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="79" parent="40" name="id">
+    <column id="96" parent="41" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>5892885</StateNumber>
+      <StateNumber>6116355</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="80" parent="40" name="phrase">
+    <column id="97" parent="41" name="keyboard_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>5892885</StateNumber>
+      <StateNumber>6116355</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="81" parent="40" name="phase_pkey">
-      <ObjectId>792322</ObjectId>
-      <StateNumber>5892885</StateNumber>
+    <column id="98" parent="41" name="additional_callback_on_btn">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116355</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="99" parent="41" name="callback_on_message">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116355</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="100" parent="41" name="files_waiting_count">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>6116355</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="101" parent="41" name="is_error">
+      <Position>6</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6116355</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="102" parent="41" name="next_phase_key">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116355</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="103" parent="41" name="phase_key">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116355</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="104" parent="41" name="phrase">
+      <Position>9</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116355</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="105" parent="41" name="prev_phase_key">
+      <Position>10</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116355</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="106" parent="41" name="to_section">
+      <Position>11</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116355</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="107" parent="41" name="wait_for_message">
+      <Position>12</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6116355</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="108" parent="41" name="phase_pkey">
+      <ObjectId>818729</ObjectId>
+      <StateNumber>6116355</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="82" parent="40" name="phase_pkey">
-      <ObjectId>792323</ObjectId>
-      <StateNumber>5892885</StateNumber>
+    <key id="109" parent="41" name="phase_pkey">
+      <ObjectId>818730</ObjectId>
+      <StateNumber>6116355</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>phase_pkey</UnderlyingIndexName>
     </key>
-    <column id="83" parent="41" name="id">
+    <column id="110" parent="42" name="phase_id">
       <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>5892886</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="84" parent="41" name="images_total_count">
-      <Position>2</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>5892886</StateNumber>
+      <NotNull>1</NotNull>
+      <StateNumber>6116356</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="85" parent="41" name="pappertype">
-      <Position>3</Position>
+    <column id="111" parent="42" name="fields_id">
+      <Position>2</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>5892886</StateNumber>
+      <NotNull>1</NotNull>
+      <StateNumber>6116356</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="86" parent="41" name="part_of_multiorder">
-      <Position>4</Position>
-      <DataType>boolean|0s</DataType>
-      <StateNumber>5892886</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="87" parent="41" name="formatphoto_width">
-      <Position>5</Position>
-      <DataType>double precision|0s</DataType>
-      <StateNumber>5892886</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <index id="88" parent="41" name="print_photo_order_pkey">
-      <ObjectId>792327</ObjectId>
-      <StateNumber>5892886</StateNumber>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-    </index>
-    <key id="89" parent="41" name="print_photo_order_pkey">
-      <ObjectId>792328</ObjectId>
-      <StateNumber>5892886</StateNumber>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>print_photo_order_pkey</UnderlyingIndexName>
-    </key>
-    <foreign-key id="90" parent="41" name="fkl2ggkwbmw7lnw1ne01n186v7s">
-      <ObjectId>792366</ObjectId>
-      <StateNumber>5892896</StateNumber>
-      <ColNames>formatphoto_width</ColNames>
-      <RefTableId>792294</RefTableId>
+    <foreign-key id="112" parent="42" name="fk27k07bsh0ij19t3qe7hha3m0m">
+      <ObjectId>818794</ObjectId>
+      <StateNumber>6116372</StateNumber>
+      <ColNames>phase_id</ColNames>
+      <RefTableId>818724</RefTableId>
       <RefColPositions>1</RefColPositions>
-      <RefTableName>formatphoto</RefTableName>
-      <RefKeyName>formatphoto_pkey</RefKeyName>
-      <RefColNames>width</RefColNames>
-    </foreign-key>
-    <column id="91" parent="42" name="id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>5892887</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="92" parent="42" name="comment">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>5892887</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="93" parent="42" name="printphotomultiorder_pkey">
-      <ObjectId>792332</ObjectId>
-      <StateNumber>5892887</StateNumber>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-    </index>
-    <key id="94" parent="42" name="printphotomultiorder_pkey">
-      <ObjectId>792333</ObjectId>
-      <StateNumber>5892887</StateNumber>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>printphotomultiorder_pkey</UnderlyingIndexName>
-    </key>
-    <column id="95" parent="43" name="printphotomultiorder_id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>5892888</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="96" parent="43" name="printphotoorders_id">
-      <Position>2</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>5892888</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <index id="97" parent="43" name="uk_pmfl1k19fngnhw4j3w6qtbq7f">
-      <ObjectId>792339</ObjectId>
-      <StateNumber>5892890</StateNumber>
-      <ColNames>printphotoorders_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="98" parent="43" name="uk_pmfl1k19fngnhw4j3w6qtbq7f">
-      <ObjectId>792340</ObjectId>
-      <StateNumber>5892890</StateNumber>
-      <ColNames>printphotoorders_id</ColNames>
-      <UnderlyingIndexName>uk_pmfl1k19fngnhw4j3w6qtbq7f</UnderlyingIndexName>
-    </key>
-    <foreign-key id="99" parent="43" name="fkqf820x7ankio7nd8oto9dqgjp">
-      <ObjectId>792376</ObjectId>
-      <StateNumber>5892898</StateNumber>
-      <ColNames>printphotomultiorder_id</ColNames>
-      <RefTableId>792329</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>printphotomultiorder</RefTableName>
-      <RefKeyName>printphotomultiorder_pkey</RefKeyName>
+      <RefTableName>phase</RefTableName>
+      <RefKeyName>phase_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="100" parent="43" name="fk34pbq3dkwttm4nd186gsbmiof">
-      <ObjectId>792371</ObjectId>
-      <StateNumber>5892897</StateNumber>
+    <foreign-key id="113" parent="42" name="fkjtmvy5nu5eexjga2koc1hu8tv">
+      <ObjectId>818789</ObjectId>
+      <StateNumber>6116371</StateNumber>
+      <ColNames>fields_id</ColNames>
+      <RefTableId>818712</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>person_field</RefTableName>
+      <RefKeyName>person_field_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="114" parent="43" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116357</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="115" parent="43" name="comment">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116357</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="116" parent="43" name="print_photo_multi_order_pkey">
+      <ObjectId>818737</ObjectId>
+      <StateNumber>6116357</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="117" parent="43" name="print_photo_multi_order_pkey">
+      <ObjectId>818738</ObjectId>
+      <StateNumber>6116357</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>print_photo_multi_order_pkey</UnderlyingIndexName>
+    </key>
+    <column id="118" parent="44" name="print_photo_multi_order_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116358</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="119" parent="44" name="printphotoorders_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116358</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="120" parent="44" name="uk_b2q6tdmcpu5midil2uq6oiwsb">
+      <ObjectId>818758</ObjectId>
+      <StateNumber>6116363</StateNumber>
       <ColNames>printphotoorders_id</ColNames>
-      <RefTableId>792324</RefTableId>
+      <Unique>1</Unique>
+    </index>
+    <key id="121" parent="44" name="uk_b2q6tdmcpu5midil2uq6oiwsb">
+      <ObjectId>818759</ObjectId>
+      <StateNumber>6116363</StateNumber>
+      <ColNames>printphotoorders_id</ColNames>
+      <UnderlyingIndexName>uk_b2q6tdmcpu5midil2uq6oiwsb</UnderlyingIndexName>
+    </key>
+    <foreign-key id="122" parent="44" name="fkqgr2o2aeta46ts55lpu7ujq3s">
+      <ObjectId>818804</ObjectId>
+      <StateNumber>6116374</StateNumber>
+      <ColNames>print_photo_multi_order_id</ColNames>
+      <RefTableId>818734</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>print_photo_multi_order</RefTableName>
+      <RefKeyName>print_photo_multi_order_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="123" parent="44" name="fknha0yle1p21y687v245fvm6pt">
+      <ObjectId>818799</ObjectId>
+      <StateNumber>6116373</StateNumber>
+      <ColNames>printphotoorders_id</ColNames>
+      <RefTableId>818742</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>print_photo_order</RefTableName>
       <RefKeyName>print_photo_order_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
+    <column id="124" parent="45" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116359</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="125" parent="45" name="have_different_count_photos">
+      <Position>2</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6116359</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="126" parent="45" name="images_total_count">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>6116359</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="127" parent="45" name="papper_type">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116359</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="128" parent="45" name="part_of_multiorder">
+      <Position>5</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6116359</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="129" parent="45" name="formatphoto_id">
+      <Position>6</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>6116359</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="130" parent="45" name="print_photo_order_pkey">
+      <ObjectId>818745</ObjectId>
+      <StateNumber>6116359</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="131" parent="45" name="print_photo_order_pkey">
+      <ObjectId>818746</ObjectId>
+      <StateNumber>6116359</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>print_photo_order_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="132" parent="45" name="fksju38mieg3yifbjinb64bju6l">
+      <ObjectId>818809</ObjectId>
+      <StateNumber>6116375</StateNumber>
+      <ColNames>formatphoto_id</ColNames>
+      <RefTableId>818695</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>format_photo</RefTableName>
+      <RefKeyName>format_photo_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="133" parent="46" name="print_photo_order_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116360</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="134" parent="46" name="differentcountphoto_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116360</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="135" parent="46" name="uk_77rgsmeewau664k8g8ws8a7ev">
+      <ObjectId>818760</ObjectId>
+      <StateNumber>6116364</StateNumber>
+      <ColNames>differentcountphoto_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="136" parent="46" name="uk_77rgsmeewau664k8g8ws8a7ev">
+      <ObjectId>818761</ObjectId>
+      <StateNumber>6116364</StateNumber>
+      <ColNames>differentcountphoto_id</ColNames>
+      <UnderlyingIndexName>uk_77rgsmeewau664k8g8ws8a7ev</UnderlyingIndexName>
+    </key>
+    <foreign-key id="137" parent="46" name="fknmxh2jaodqeabv7h4e5rifa77">
+      <ObjectId>818819</ObjectId>
+      <StateNumber>6116377</StateNumber>
+      <ColNames>print_photo_order_id</ColNames>
+      <RefTableId>818742</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>print_photo_order</RefTableName>
+      <RefKeyName>print_photo_order_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="138" parent="46" name="fkgd51d27hhjv42ffbd6refpm2n">
+      <ObjectId>818814</ObjectId>
+      <StateNumber>6116376</StateNumber>
+      <ColNames>differentcountphoto_id</ColNames>
+      <RefTableId>818690</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>different_count_photo</RefTableName>
+      <RefKeyName>different_count_photo_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="139" parent="47" name="print_photo_order_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116361</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="140" parent="47" name="photos_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116361</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="141" parent="47" name="uk_q2pwwpjoe4e8ox5btwuw5fcsm">
+      <ObjectId>818762</ObjectId>
+      <StateNumber>6116365</StateNumber>
+      <ColNames>photos_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="142" parent="47" name="uk_q2pwwpjoe4e8ox5btwuw5fcsm">
+      <ObjectId>818763</ObjectId>
+      <StateNumber>6116365</StateNumber>
+      <ColNames>photos_id</ColNames>
+      <UnderlyingIndexName>uk_q2pwwpjoe4e8ox5btwuw5fcsm</UnderlyingIndexName>
+    </key>
+    <foreign-key id="143" parent="47" name="fk7i2a3mrmcg7sfd5khgrle783">
+      <ObjectId>818829</ObjectId>
+      <StateNumber>6116379</StateNumber>
+      <ColNames>print_photo_order_id</ColNames>
+      <RefTableId>818742</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>print_photo_order</RefTableName>
+      <RefKeyName>print_photo_order_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="144" parent="47" name="fk5kkr6rk4y31s9gfcrpjx4mfvc">
+      <ObjectId>818824</ObjectId>
+      <StateNumber>6116378</StateNumber>
+      <ColNames>photos_id</ColNames>
+      <RefTableId>818753</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>url_file</RefTableName>
+      <RefKeyName>url_file_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="145" parent="48" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6116362</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="146" parent="48" name="url">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>6116362</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="147" parent="48" name="url_file_pkey">
+      <ObjectId>818756</ObjectId>
+      <StateNumber>6116362</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="148" parent="48" name="url_file_pkey">
+      <ObjectId>818757</ObjectId>
+      <StateNumber>6116362</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>url_file_pkey</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

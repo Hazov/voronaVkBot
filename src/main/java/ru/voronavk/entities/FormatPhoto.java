@@ -1,16 +1,15 @@
 package ru.voronavk.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.voronavk.utils.PrintPhotoUtil;
-import ru.voronavk.utils.annotations.ForApi;
+import ru.voronavk.annotations.ForApi;
 import ru.voronavk.utils.hibernate.Hiber;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "format_photo")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,9 +17,9 @@ public class FormatPhoto implements Comparable<FormatPhoto>{
     @Id
     @GeneratedValue
     Long id;
-    @Column
+    @Column(name = "width")
     double width;
-    @Column
+    @Column(name = "height")
     double height;
 
     public FormatPhoto(double width, double height) {

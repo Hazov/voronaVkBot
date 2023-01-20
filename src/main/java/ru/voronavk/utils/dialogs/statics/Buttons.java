@@ -13,12 +13,10 @@ public class Buttons {
         List<Button> menuButtons = new ArrayList<>();
         //Меню
         JsonObject printPhotosPayload = new JsonObject();
-        printPhotosPayload.addProperty("to", "$print-photos");
-        printPhotosPayload.addProperty("phase", "@manyFormats");
+        printPhotosPayload.addProperty("answer", "printPhotos");
         menuButtons.add(new CallbackButton(Button.Color.PRIMARY, new CallbackButton.Action("Печать фото", printPhotosPayload)));
         JsonObject photoOnDocsPayload = new JsonObject();
-        photoOnDocsPayload.addProperty("to", "$photo-on-docs");
-        photoOnDocsPayload.addProperty("phase", "----");
+        photoOnDocsPayload.addProperty("answer", "photoOnDocs");
         menuButtons.add(new CallbackButton(Button.Color.PRIMARY, new CallbackButton.Action("Фото на документы", photoOnDocsPayload)));
         return menuButtons;
     }

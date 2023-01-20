@@ -13,6 +13,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity(name = "person")
 @Getter
@@ -83,7 +84,7 @@ public class Person {
     }
 
     public static void changePhase(Person person, Phase phase) {
-        person.getState().setOrderPhase(phase);
+        person.getState().setPhase(phase);
         Person.save(person);
     }
 
@@ -104,6 +105,21 @@ public class Person {
     public FormatPhoto getFormatOfLastPrintPhotoOrder(){
         PrintPhotoOrder currentPrintPhotoOrder = getCurrentPrintPhotoOrder();
         return currentPrintPhotoOrder.getFormatPhoto();
+    }
+
+    public static List<PersonField> getFieldsToChange(Person person){
+        return person.getState().getPhase().getFields().stream().filter(PersonField::isToChange).collect(Collectors.toList());
+    }
+
+    public static List<PersonField> getFieldsToCheck(Person person){
+        return person.getState().getPhase().getFields().stream().filter(PersonField::isToCheck).collect(Collectors.toList());
+    }
+
+    public static Phase getPhase(Person person){
+        if(person != null && person.getState() != null){
+            return person.getState().getPhase();
+        }
+        return null;
     }
 }
 

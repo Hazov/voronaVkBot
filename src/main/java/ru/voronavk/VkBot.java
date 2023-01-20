@@ -13,14 +13,18 @@ import api.longpoll.bots.model.events.users.GroupLeaveEvent;
 import api.longpoll.bots.model.events.wall.comments.WallReplyEvent;
 import api.longpoll.bots.model.objects.basic.Message;
 import api.longpoll.bots.model.objects.basic.User;
-import com.google.gson.JsonObject;
+import lombok.SneakyThrows;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ru.voronavk.diao.PrintPhotosResponse;
 import ru.voronavk.entities.Person;
+import ru.voronavk.entities.PersonState;
 import ru.voronavk.entities.Phase;
+import ru.voronavk.exception.CannotCreatePersonException;
+import ru.voronavk.utils.ApiUtil;
 import ru.voronavk.utils.dialogs.statics.Keyboards;
 import ru.voronavk.utils.dialogs.statics.Phases;
 import ru.voronavk.utils.hibernate.Hiber;
+import ru.voronavk.utils.hibernate.initdb.PhasesPusher;
 
 import java.util.Arrays;
 
@@ -33,54 +37,47 @@ public class VkBot extends LongPollBot {
 
 
     public String[] makeOrderMatches = {"1","c","сделать заказ", "заказать", "меню", "начать"};
+    @SneakyThrows
     @Override
     public void onMessageEvent(MessageEvent messageEvent) {
-        Get.Response responseUser = null;
-        User user = null;
-        try {
-            responseUser = vkBotsApi.users().get().setUserIds(messageEvent.getUserId()).execute();
-        } catch (VkApiException e) {
-            e.printStackTrace();
-        }
-        Person person = Person.findById(messageEvent.getUserId());
-        if(person == null){
-            if(responseUser != null && responseUser.getResponseObject() != null && responseUser.getResponseObject().size() > 0){
-                user = responseUser.getResponseObject().get(0);
-                person = Person.insertNew(user);
-            }
-            if(person == null) return;
-        }
-
-
+        PrintPhotosResponse printPhotosResponse = null;
+        Person person = getPersonFromEvent(messageEvent);
+        person = preparePerson(person);
         //Callback на callback-кнопки
-        JsonObject payload = messageEvent.getPayload().getAsJsonObject();
-        if(payload != null){
-            String to = payload.get("to").toString().substring(1, payload.get("to").toString().length()-1);
-            String phaseKey = payload.get("phase").toString().substring(1, payload.get("phase").toString().length()-1);
-            PrintPhotosResponse response = null;
-            if(to.equals("$print-photos")){
-                 response = printPhotosDialogManager.process(messageEvent, person);
-            }
-            Phase phase = Phases.getCurrentPhase(to, phaseKey);
-            Phase.save(phase);
-            Person.changePhase(person, phase);
-
+        String userAnswer = ApiUtil.getUserAnswer(messageEvent);
+        Phase phase = Person.getPhase(person);
+        if(getToSection(phase).equals("$print-photos") || userAnswer.equals("printPhotos")){
+            printPhotosResponse = printPhotosDialogManager.processEvent(messageEvent, person);
+        }
             try {
-                if(response != null && response.getMessageId() != 0){
+                if(printPhotosResponse != null && printPhotosResponse.getMessageId() != 0){
                     vkBotsApi.messages().delete()
                             .setGroupId(getGroupId())
                             .setPeerId(messageEvent.getPeerId())
-                            .setMessageIds(response.getMessageId())
+                            .setMessageIds(printPhotosResponse.getMessageId())
                             .setDeleteForAll(true)
                             .execute();
                 }
             } catch (VkApiException e) {
                 e.printStackTrace();
             }
+    }
 
-            System.out.println("sdsd");
+    private String getToSection(Phase phase) {
+        if(phase != null && phase.getToSection() != null){
+            return phase.getToSection();
         }
+        return "";
+    }
 
+    private Person preparePerson(Person person) {
+        if(person != null){
+            if(person.getState() == null){
+                PersonState personState = new PersonState();
+                PersonState.save(personState);
+            }
+        }
+        return person;
     }
 
     public boolean isMatch(String msg, String[] matches){
@@ -105,7 +102,7 @@ public class VkBot extends LongPollBot {
              }
         } else {
             Person person = Person.findById(messageNewEvent.getMessage().getPeerId());
-            Phase phase =  person.getState().getOrderPhase();
+            Phase phase =  person.getState().getPhase();
             if(phase.getToSection().equals("$print-photos")){
                 printPhotosDialogManager.processMessageOrFiles(messageNewEvent, person);
             }
@@ -161,7 +158,35 @@ public class VkBot extends LongPollBot {
 
     public static void main(String[] args) throws VkApiException {
         Hiber.build();
+        PhasesPusher.printPhotoPhasesInit();
+        PhasesPusher.commonPhasesInit();
         new BotsLongPoll(new VkBot()).run();
+    }
+
+
+    private Person getPersonFromEvent(MessageEvent messageEvent) throws CannotCreatePersonException {
+        Get.Response responseUser = null;
+        try {
+            responseUser = vkBotsApi.users().get().setUserIds(messageEvent.getUserId()).execute();
+        } catch (VkApiException e) {
+            e.printStackTrace();
+        }
+        Person person = Person.findById(messageEvent.getUserId());
+        if(person == null){
+            person = createUser(responseUser);
+        }
+        return person;
+    }
+
+    private Person createUser(Get.Response responseUser) throws CannotCreatePersonException {
+        Person person = null;
+        User user;
+        if(responseUser != null && responseUser.getResponseObject() != null && responseUser.getResponseObject().size() > 0){
+            user = responseUser.getResponseObject().get(0);
+            person = Person.insertNew(user);
+        }
+        if(person == null) throw new CannotCreatePersonException();
+        return person;
     }
 }
 

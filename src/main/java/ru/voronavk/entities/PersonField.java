@@ -1,5 +1,6 @@
 package ru.voronavk.entities;
 
+import com.google.gson.internal.$Gson$Types;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,18 +13,23 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "person_field")
 public class PersonField {
     @Id
+    @GeneratedValue
     Integer id;
-    @Column
+    @Column(name = "class_name")
     String className;
-    @Column
+    @Column(name = "setter")
     String setter;
-    @Column
+    @Column(name = "type")
     String type;
-    @Column
+    @Column(name = "accessNewIfIsList")
     Boolean accessNewIfIsList;
+    @Column(name = "to_check")
+    boolean toCheck;
+    @Column(name = "to_change")
+    boolean toChange;
 
 
     public static void save(PersonField personField){

@@ -2,31 +2,47 @@ package ru.voronavk.utils.hibernate.initdb;
 
 import ru.voronavk.entities.PersonField;
 import ru.voronavk.entities.Phase;
+import ru.voronavk.utils.dialogs.statics.Keyboards;
 
+import java.util.ArrayList;
 import java.util.Collections;
 
-public class PhasesInitializer {
-    private void printPhotoPhasesInit()
-    {
+public class PhasesPusher {
+    public static void commonPhasesInit(){
+        Phase phaseWhatFormat = new Phase();
+        phaseWhatFormat.setToSection("$common");
+        phaseWhatFormat.setPhaseKey("@whatOrder");
+        phaseWhatFormat.setPhrase("Что хотите заказать?");
+        phaseWhatFormat.setFilesWaitingCount(0);
+        phaseWhatFormat.setKeyboardName("ordersMenu");
+        phaseWhatFormat.setWaitForMessage(false);
+        phaseWhatFormat.setCallbackOnMessage(null);
+        phaseWhatFormat.setAdditionalCallbackOnBtn(null);
+        Phase.save(phaseWhatFormat);
+    }
+    public static void printPhotoPhasesInit() {
         //$print-photos
         //Какой формат (whatFormat)
         PersonField personFieldWhatFormat = new PersonField();
         personFieldWhatFormat.setClassName("PrintPhotoOrder");
         personFieldWhatFormat.setSetter("setFormatPhoto");
         personFieldWhatFormat.setType("FormatPhoto");
+        personFieldWhatFormat.setToChange(true);
         PersonField.save(personFieldWhatFormat);
 
         Phase phaseWhatFormat = new Phase();
+
         phaseWhatFormat.setToSection("$print-photos");
         phaseWhatFormat.setPhaseKey("@whatFormat");
         phaseWhatFormat.setPhrase("Какой формат?");
         phaseWhatFormat.setFilesWaitingCount(0);
         phaseWhatFormat.setWaitForMessage(false);
         phaseWhatFormat.setCallbackOnMessage(null);
+        phaseWhatFormat.setKeyboardName("formatsPhotoKeyBoard");
         phaseWhatFormat.setAdditionalCallbackOnBtn(null);
         phaseWhatFormat.setPrevPhaseKey("@manyFormats");
         phaseWhatFormat.setNextPhaseKey("@papperType");
-        phaseWhatFormat.setFieldsToChange(Collections.singletonList(personFieldWhatFormat));
+        phaseWhatFormat.setFields(Collections.singletonList(personFieldWhatFormat));
         Phase.save(phaseWhatFormat);
 
         //Какой формат (manyFormats)
@@ -34,6 +50,7 @@ public class PhasesInitializer {
         personFieldManyFormats.setClassName("PrintPhotoOrder");
         personFieldManyFormats.setSetter("setIsPartOfMultiPhotoOrder");
         personFieldManyFormats.setType("boolean");
+        personFieldManyFormats.setToChange(true);
         PersonField.save(personFieldManyFormats);
 
         Phase phaseManyFormats = new Phase();
@@ -43,10 +60,11 @@ public class PhasesInitializer {
         phaseManyFormats.setFilesWaitingCount(0);
         phaseManyFormats.setWaitForMessage(false);
         phaseManyFormats.setCallbackOnMessage(null);
+        phaseManyFormats.setKeyboardName("formatsPhotoKeyBoard");
         phaseManyFormats.setAdditionalCallbackOnBtn(null);
         phaseManyFormats.setPrevPhaseKey(null);
         phaseManyFormats.setNextPhaseKey("@whatFormat");
-        phaseManyFormats.setFieldsToChange(Collections.singletonList(personFieldManyFormats));
+        phaseManyFormats.setFields(Collections.singletonList(personFieldManyFormats));
         Phase.save(phaseManyFormats);
 
         //Давайте начнем с первого. Какой будет первый формат? (firstFormat)
@@ -54,6 +72,7 @@ public class PhasesInitializer {
         personFieldFirstFormat.setClassName("PrintPhotoOrder");
         personFieldFirstFormat.setSetter("setFormatPhoto");
         personFieldFirstFormat.setType("FormatPhoto");
+        personFieldFirstFormat.setToChange(true);
         PersonField.save(personFieldFirstFormat);
 
         Phase phaseFirstFormat = new Phase();
@@ -62,11 +81,12 @@ public class PhasesInitializer {
         phaseFirstFormat.setPhrase("Давайте начнем с первого. Какой будет первый формат?");
         phaseFirstFormat.setFilesWaitingCount(0);
         phaseFirstFormat.setWaitForMessage(false);
+        phaseFirstFormat.setKeyboardName("formatsPhotoKeyBoard");
         phaseFirstFormat.setCallbackOnMessage(null);
         phaseFirstFormat.setAdditionalCallbackOnBtn(null);
         phaseManyFormats.setPrevPhaseKey("@manyFormats");
         phaseManyFormats.setNextPhaseKey("@papperType");
-        phaseFirstFormat.setFieldsToChange(Collections.singletonList(personFieldFirstFormat));
+        phaseFirstFormat.setFields(Collections.singletonList(personFieldFirstFormat));
         Phase.save(phaseFirstFormat);
 
         //К сожалению, такого формата фотографии мы не делаем (warnNoFormat)
@@ -74,6 +94,7 @@ public class PhasesInitializer {
         personFieldWarnNoFormat.setClassName("PrintPhotoOrder");
         personFieldWarnNoFormat.setSetter("setFormatPhoto");
         personFieldWarnNoFormat.setType("FormatPhoto");
+        personFieldWarnNoFormat.setToChange(true);
         PersonField.save(personFieldWarnNoFormat);
 
         Phase phaseWarnNoFormat = new Phase();
@@ -82,12 +103,13 @@ public class PhasesInitializer {
         phaseWarnNoFormat.setPhrase("К сожалению, формат [0] см мы не делаем(");
         phaseWarnNoFormat.setFilesWaitingCount(0);
         phaseWarnNoFormat.setWaitForMessage(true);
+        phaseWarnNoFormat.setKeyboardName("warnNoFormatKeyBoard");
         phaseWarnNoFormat.setCallbackOnMessage(null);
         phaseWarnNoFormat.setAdditionalCallbackOnBtn(null);
         phaseWarnNoFormat.setError(true);
         phaseWarnNoFormat.setPrevPhaseKey("@whatFormat");
         phaseWarnNoFormat.setNextPhaseKey("@papperType");
-        phaseWarnNoFormat.setFieldsToChange(Collections.singletonList(personFieldWarnNoFormat));
+        phaseWarnNoFormat.setFields(Collections.singletonList(personFieldWarnNoFormat));
         Phase.save(phaseWarnNoFormat);
 
         //Выберите тип бумаги @papperType"
@@ -95,6 +117,7 @@ public class PhasesInitializer {
         personFieldPapperType.setClassName("PrintPhotoOrder");
         personFieldPapperType.setSetter("setPapperType");
         personFieldPapperType.setType("String");
+        personFieldPapperType.setToChange(true);
         PersonField.save(personFieldPapperType);
 
         Phase phasePapperType = new Phase();
@@ -103,11 +126,12 @@ public class PhasesInitializer {
         phasePapperType.setPhrase("Выберите тип бумаги");
         phasePapperType.setFilesWaitingCount(0);
         phasePapperType.setWaitForMessage(false);
+        phasePapperType.setKeyboardName("papperTypeKeyBoard");
         phasePapperType.setCallbackOnMessage(null);
         phasePapperType.setAdditionalCallbackOnBtn(null);
         phasePapperType.setPrevPhaseKey("@whatFormat");
         phasePapperType.setNextPhaseKey("@repeatPhotos");
-        phasePapperType.setFieldsToChange(Collections.singletonList(personFieldPapperType));
+        phasePapperType.setFields(Collections.singletonList(personFieldPapperType));
         Phase.save(phasePapperType);
 
 
@@ -116,6 +140,7 @@ public class PhasesInitializer {
         personFieldRepeatPhotos.setClassName("PrintPhotoOrder");
         personFieldRepeatPhotos.setSetter("setHaveDifferentCountPhotos");
         personFieldRepeatPhotos.setType("boolean");
+        personFieldRepeatPhotos.setToChange(true);
         PersonField.save(personFieldRepeatPhotos);
 
         Phase phaseRepeatPhotos = new Phase();
@@ -124,11 +149,12 @@ public class PhasesInitializer {
         phaseRepeatPhotos.setPhrase("Будут ли среди фотографий те, которые нужно отпечатать несколько раз?");
         phaseRepeatPhotos.setFilesWaitingCount(0);
         phaseRepeatPhotos.setWaitForMessage(false);
+        phaseRepeatPhotos.setKeyboardName("repeatPhotosKeyBoard");
         phaseRepeatPhotos.setCallbackOnMessage(null);
         phaseRepeatPhotos.setAdditionalCallbackOnBtn(null);
         phaseRepeatPhotos.setPrevPhaseKey("@papperType");
         phaseRepeatPhotos.setNextPhaseKey("yes:@byOneWithCount, no:@sizes");
-        phaseRepeatPhotos.setFieldsToChange(Collections.singletonList(personFieldRepeatPhotos));
+        phaseRepeatPhotos.setFields(Collections.singletonList(personFieldRepeatPhotos));
         Phase.save(phaseRepeatPhotos);
 
 
@@ -139,6 +165,7 @@ public class PhasesInitializer {
         phaseByOneWithCount.setPhrase("Пожалуйста, скиньте сначала их (по одной!), и напишите в сообщении количество данной фотографии");
         phaseByOneWithCount.setFilesWaitingCount(1);
         phaseByOneWithCount.setWaitForMessage(true);
+        phaseByOneWithCount.setKeyboardName("byOneWithCountKeyBoard");
         phaseByOneWithCount.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
         phaseByOneWithCount.setAdditionalCallbackOnBtn(null);
         phaseByOneWithCount.setPrevPhaseKey("@repeatPhotos");
@@ -153,6 +180,7 @@ public class PhasesInitializer {
         phaseSizes.setPhrase("Введите размер (примерно так: \"14 на 18.7\" или так \"7,5x10.5\"");
         phaseSizes.setFilesWaitingCount(0);
         phaseSizes.setWaitForMessage(true);
+        phaseSizes.setKeyboardName("sizesKeyBoard");
         phaseSizes.setCallbackOnMessage("tryCastFormatPhoto");
         phaseSizes.setAdditionalCallbackOnBtn(null);
         phaseSizes.setPrevPhaseKey("@papperType");
@@ -165,6 +193,7 @@ public class PhasesInitializer {
         personFieldSpellOutFormat.setClassName("PrintPhotoOrder");
         personFieldSpellOutFormat.setSetter("setHaveDifferentCountPhotos");
         personFieldSpellOutFormat.setType("boolean");
+        personFieldSpellOutFormat.setToChange(true);
         PersonField.save(personFieldSpellOutFormat);
 
         Phase phaseSpellOutFormat = new Phase();
@@ -174,10 +203,11 @@ public class PhasesInitializer {
         phaseSpellOutFormat.setFilesWaitingCount(0);
         phaseSpellOutFormat.setWaitForMessage(false);
         phaseSpellOutFormat.setCallbackOnMessage(null);
+        phaseSpellOutFormat.setKeyboardName("spellOutFormatKeyBoard");
         phaseSpellOutFormat.setAdditionalCallbackOnBtn(null);
         phaseSpellOutFormat.setPrevPhaseKey("@whatFormat");
         phaseSpellOutFormat.setNextPhaseKey("yes:@byOneWithCount, no:@sizes");
-        phaseSpellOutFormat.setFieldsToChange(Collections.singletonList(personFieldSpellOutFormat));
+        phaseSpellOutFormat.setFields(Collections.singletonList(personFieldSpellOutFormat));
         Phase.save(phaseSpellOutFormat);
 
 
@@ -188,6 +218,7 @@ public class PhasesInitializer {
         phaseNoRecognizeFormat.setPhrase("К сожалению я не смог понять какой Вам нужен формат");
         phaseNoRecognizeFormat.setFilesWaitingCount(0);
         phaseNoRecognizeFormat.setWaitForMessage(true);
+        phaseNoRecognizeFormat.setKeyboardName("noRecognizeFormatKeyBoard");
         phaseNoRecognizeFormat.setCallbackOnMessage("tryCastFormatPhoto");
         phaseNoRecognizeFormat.setAdditionalCallbackOnBtn(null);
         phaseNoRecognizeFormat.setPrevPhaseKey("@whatFormat");
@@ -230,6 +261,7 @@ public class PhasesInitializer {
         phaseAfterDownloadingByOne.setPhrase("Cкиньте еще или нажмите кнопку \"Готово\".");
         phaseAfterDownloadingByOne.setFilesWaitingCount(1);
         phaseAfterDownloadingByOne.setWaitForMessage(false);
+        phaseAfterDownloadingByOne.setKeyboardName("afterDownloadingKeyBoard");
         phaseAfterDownloadingByOne.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
         phaseAfterDownloadingByOne.setAdditionalCallbackOnBtn(null);
         Phase.save(phaseAfterDownloadingByOne);
@@ -242,6 +274,7 @@ public class PhasesInitializer {
         phaseAfterDownloadingByTen.setPhrase("Cкиньте еще или нажмите кнопку \"Готово\".");
         phaseAfterDownloadingByTen.setFilesWaitingCount(1);
         phaseAfterDownloadingByTen.setWaitForMessage(false);
+        phaseAfterDownloadingByTen.setKeyboardName("afterDownloadingKeyBoard");
         phaseAfterDownloadingByTen.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
         phaseAfterDownloadingByTen.setAdditionalCallbackOnBtn(null);
         Phase.save(phaseAfterDownloadingByTen);
@@ -254,6 +287,7 @@ public class PhasesInitializer {
         phaseMoments.setPhrase("Хорошо, прежде чем вы скинете фотки, есть ли какие-нибудь моменты, о которых мы должны знать?\n (Вы также можете прикрепить какой нибудь файл)");
         phaseMoments.setFilesWaitingCount(0);
         phaseMoments.setWaitForMessage(false);
+        phaseMoments.setKeyboardName("momentsKeyBoard");
         phaseMoments.setCallbackOnMessage(null);
         phaseMoments.setAdditionalCallbackOnBtn(null);
         phaseMoments.setPrevPhaseKey("@whatFormat");
@@ -268,6 +302,7 @@ public class PhasesInitializer {
         phasePriceDependsOnComment.setPhrase("Внимание, может случится так, что цена может поменяться в зависимости от вашего пожелания, либо мы не сможем это сделать!\n В этих случаях мы вам отпишемся \n Напишите свой комментарий.");
         phasePriceDependsOnComment.setFilesWaitingCount(0);
         phasePriceDependsOnComment.setWaitForMessage(true);
+        phasePriceDependsOnComment.setKeyboardName("priceDependsOnCommentKeyBoard");
         phasePriceDependsOnComment.setCallbackOnMessage("setTempComment");
         phasePriceDependsOnComment.setAdditionalCallbackOnBtn(null);
         phasePriceDependsOnComment.setPrevPhaseKey("@moments");
@@ -282,6 +317,7 @@ public class PhasesInitializer {
         phaseCommentForPartOrAll.setPhrase("Эти пожелания касаются всех форматов, или только для этого формата?");
         phaseCommentForPartOrAll.setFilesWaitingCount(0);
         phaseCommentForPartOrAll.setWaitForMessage(false);
+        phaseCommentForPartOrAll.setKeyboardName("commentForPartOrAllKeyBoard");
         phaseCommentForPartOrAll.setCallbackOnMessage("tempCommentToCurrentComment");
         phaseCommentForPartOrAll.setAdditionalCallbackOnBtn(null);
         phaseCommentForPartOrAll.setPrevPhaseKey("@moments");
@@ -296,6 +332,7 @@ public class PhasesInitializer {
         phaseDownloadByTen.setPhrase("Эти пожелания касаются всех форматов, или только для этого формата?");
         phaseDownloadByTen.setFilesWaitingCount(10);
         phaseDownloadByTen.setWaitForMessage(false);
+        phaseDownloadByTen.setKeyboardName("downloadByTenKeyBoard");
         phaseDownloadByTen.setCallbackOnMessage("tempCommentToCurrentComment");
         phaseDownloadByTen.setAdditionalCallbackOnBtn(null);
         phaseDownloadByTen.setPrevPhaseKey("@moments");
@@ -322,6 +359,7 @@ public class PhasesInitializer {
         personFieldNextFormat.setClassName("PrintPhotoOrder");
         personFieldNextFormat.setSetter("setFormatPhoto");
         personFieldNextFormat.setType("FormatPhoto");
+        personFieldNextFormat.setToChange(true);
         PersonField.save(personFieldNextFormat);
 
         Phase phaseNextFormat = new Phase();
@@ -330,11 +368,12 @@ public class PhasesInitializer {
         phaseNextFormat.setPhrase("Не удаляйте фотографии до выполнения заказа. Какой следующий формат?");
         phaseNextFormat.setFilesWaitingCount(0);
         phaseNextFormat.setWaitForMessage(false);
+        phaseNextFormat.setKeyboardName("formatsPhotoKeyBoard");
         phaseNextFormat.setCallbackOnMessage(null);
         phaseNextFormat.setAdditionalCallbackOnBtn(null);
         phaseNextFormat.setPrevPhaseKey("@nextFormat");
         phaseNextFormat.setNextPhaseKey("papperType");
-        phaseNextFormat.setFieldsToChange(Collections.singletonList(personFieldNextFormat));
+        phaseNextFormat.setFields(Collections.singletonList(personFieldNextFormat));
         Phase.save(phaseNextFormat);
 
     }

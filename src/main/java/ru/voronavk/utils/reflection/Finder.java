@@ -1,12 +1,17 @@
 package ru.voronavk.utils.reflection;
 
+import ru.voronavk.entities.Person;
+
 import java.io.File;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class ClassFinder {
+public class Finder {
 
     private static final char PKG_SEPARATOR = '.';
 
@@ -15,6 +20,8 @@ public class ClassFinder {
     private static final String CLASS_FILE_SUFFIX = ".class";
 
     private static final String BAD_PACKAGE_ERROR = "Unable to get resources from path '%s'. Are you sure the package '%s' exists?";
+    private static Object findEntity;
+
 
     /**
      * Возвращает список классов в пакете
@@ -68,6 +75,55 @@ public class ClassFinder {
             variants.add(result.toString());
         }
         return classes.stream().filter(c -> variants.stream().anyMatch(v -> v.equals(c.getName()))).collect(Collectors.toList()).get(0);
+    }
+    public static Method findMethodByName(Class<?> clazz, String methodName){
+        List<Method> collect = Arrays.stream(clazz.getMethods()).filter(m -> m.getName().equals(methodName)).collect(Collectors.toList());
+        if(collect.size() > 0){
+            return collect.get(0);
+        }
+        return null;
+    }
+
+    public static Object findEntityInPerson(Object person, Class<?> toSearchClass) {
+        Class<?> pClass = person.getClass();
+        if(person.getClass() == toSearchClass) return person;
+        List<Method> methods = Arrays.stream(pClass.getDeclaredMethods()).filter(m -> m.getReturnType().getName().equals(toSearchClass.getName())).collect(Collectors.toList());
+        if(methods.size() == 0){
+            List<Method> getters = Arrays.stream(pClass.getDeclaredMethods())
+                    .filter(m -> m.getName().startsWith("get"))
+                    .collect(Collectors.toList());
+            for (Method getter: getters){
+                try{
+                    findEntityInPerson(getter.invoke(person), toSearchClass);
+                } catch (Exception e){
+
+                }
+            }
+
+
+
+        } else {
+            try{
+                return methods.get(0).invoke(person);
+            } catch (Exception e){
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static Class<?> searchClassByName(String typeString) {
+        String javaPrefix = "java.lang.";
+        String entityPrefix = "ru.voronavk.entities.";
+        try{
+            return Class.forName(javaPrefix + typeString);
+        } catch (Exception e){
+            try{
+                return Class.forName(entityPrefix + typeString);
+            } catch (Exception ex){
+                return null;
+            }
+        }
     }
 }
 

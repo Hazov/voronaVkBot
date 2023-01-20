@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "url_file")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,6 +19,6 @@ public class UrlFile {
     @Id
     @GeneratedValue
     Long id;
-    @Column
+    @Column(name = "url")
     String url;
 }

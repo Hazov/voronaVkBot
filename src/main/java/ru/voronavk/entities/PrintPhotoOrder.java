@@ -25,7 +25,7 @@ public class PrintPhotoOrder implements InnerPartOrder {
     int imagesTotalCount;
     @Column(name = "part_of_multiorder")
     boolean partOfMultiPhotoOrder;
-    @Column
+    @Column(name = "have_different_count_photos")
     boolean haveDifferentCountPhotos;
     @OneToMany
     List<DifferentCountPhoto> differentCountPhoto;

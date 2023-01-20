@@ -1,4 +1,4 @@
-package ru.voronavk.utils.annotations;
+package ru.voronavk.annotations;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

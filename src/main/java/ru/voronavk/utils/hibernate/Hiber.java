@@ -187,4 +187,12 @@ public class Hiber {
         };
         return Arrays.stream(entities).map(Class::getName).collect(Collectors.toList());
     }
+
+    public static void save(Object entity) {
+        EntityManager em = Hiber.getEntityManager();
+        em.getTransaction().begin();
+        em.persist(entity);
+        em.flush();
+        em.getTransaction().commit();
+    }
 }

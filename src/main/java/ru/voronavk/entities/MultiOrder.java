@@ -7,7 +7,7 @@ import ru.voronavk.utils.hibernate.Hiber;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "multi_order")
 @Getter
 @Setter
 public class MultiOrder {
