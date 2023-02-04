@@ -87,12 +87,12 @@ public class Finder {
     public static Object findEntityInPerson(Object person, Class<?> toSearchClass) {
         Class<?> pClass = person.getClass();
         if(person.getClass() == toSearchClass) return person;
-        List<Method> methods = Arrays.stream(pClass.getDeclaredMethods()).filter(m -> m.getReturnType().getName().equals(toSearchClass.getName())).collect(Collectors.toList());
+        List<Method> methods = Arrays.stream(pClass.getDeclaredMethods())
+                .filter(m -> m.getReturnType().getName().equals(toSearchClass.getName()))
+                .filter(m -> m.getName().startsWith("get"))
+                .collect(Collectors.toList());
         if(methods.size() == 0){
-            List<Method> getters = Arrays.stream(pClass.getDeclaredMethods())
-                    .filter(m -> m.getName().startsWith("get"))
-                    .collect(Collectors.toList());
-            for (Method getter: getters){
+            for (Method getter: methods){
                 try{
                     findEntityInPerson(getter.invoke(person), toSearchClass);
                 } catch (Exception e){

@@ -116,7 +116,7 @@ public class PrintPhotoUtil {
         if(format.toLowerCase().equals("polaroid")) return a6;
         try{
             format = format.replaceAll(",", ".");
-            Pattern pattern = Pattern.compile("(?:(\\d+([.|,][\\d]+)?))");
+            Pattern pattern = Pattern.compile("(?:(\\d+([.][\\d]+)?))");
             Matcher matcher = pattern.matcher(format);
             Double width = null;
             Double height = null;

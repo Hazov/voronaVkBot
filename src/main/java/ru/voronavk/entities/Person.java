@@ -88,6 +88,33 @@ public class Person {
         Person.save(person);
     }
 
+    public static DifferentCountPhoto lastDifferentCountPhotoOrder(Person person) {
+        PrintPhotoOrder lastPrintPhotoOrder = Person.lastPrintPhotoOrder(person);
+        if(lastPrintPhotoOrder == null) {
+            lastPrintPhotoOrder = PrintPhotoOrder.createNew(person);
+        }
+        DifferentCountPhoto lastDifferentCountPhoto = PrintPhotoOrder.lastDifferentCountPhoto(lastPrintPhotoOrder);
+            if(lastDifferentCountPhoto == null){
+                lastDifferentCountPhoto = DifferentCountPhoto.createNew(person);
+            }
+        return lastDifferentCountPhoto;
+
+    }
+
+    static PrintPhotoOrder lastPrintPhotoOrder(Person person) {
+        List<PrintPhotoOrder> printPhotoOrders = person.getState().getCurrentOrder().getPrintPhotoMultiOrder().getPrintPhotoOrders();
+        long lastPfoId = -1;
+        for (PrintPhotoOrder pfo : printPhotoOrders){
+            if(pfo.getId() > lastPfoId) lastPfoId = pfo.getId();
+        }
+        long finalLastId = lastPfoId;
+        List<PrintPhotoOrder> pfos = printPhotoOrders.stream().filter(pfo -> pfo.getId() == finalLastId).collect(Collectors.toList());
+        if(pfos.size() > 0){
+            return pfos.get(0);
+        }
+        return null;
+    }
+
     public PrintPhotoOrder getCurrentPrintPhotoOrder(){
         List<PrintPhotoOrder> printPhotoOrders = this.getState().getCurrentOrder().getPrintPhotoMultiOrder().getPrintPhotoOrders();
         Long maxId = 0L;

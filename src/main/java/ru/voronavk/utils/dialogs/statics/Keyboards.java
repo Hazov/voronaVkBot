@@ -87,4 +87,8 @@ public class Keyboards {
     public static Keyboard sizesKeyBoard() {
         return buildKeyBoard(Buttons.sizesButtons());
     }
+
+    public static Keyboard specificationCountKeyBoard(){
+        return buildKeyBoard(Buttons.specificationCountButtons());
+    }
 }

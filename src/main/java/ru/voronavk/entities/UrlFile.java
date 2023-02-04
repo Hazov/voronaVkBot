@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.voronavk.utils.hibernate.Hiber;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "url_file")
 @Getter
@@ -21,4 +19,12 @@ public class UrlFile {
     Long id;
     @Column(name = "url")
     String url;
+
+    public static void save(UrlFile urlFile) {
+        EntityManager em = Hiber.getEntityManager();
+        em.getTransaction().begin();
+        em.persist(urlFile);
+        em.flush();
+        em.getTransaction().commit();
+    }
 }

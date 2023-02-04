@@ -169,8 +169,20 @@ public class PhasesPusher {
         phaseByOneWithCount.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
         phaseByOneWithCount.setAdditionalCallbackOnBtn(null);
         phaseByOneWithCount.setPrevPhaseKey("@repeatPhotos");
-        phaseByOneWithCount.setNextPhaseKey("@afterDownloading");
         Phase.save(phaseByOneWithCount);
+
+        //Хорошо, скиньте еще или нажмите "Завершить" @byOneWithCountContinue
+        Phase phaseByOneWithCountContinue = new Phase();
+        phaseByOneWithCountContinue.setToSection("$print-photos");
+        phaseByOneWithCountContinue.setPhaseKey("@byOneWithCount");
+        phaseByOneWithCountContinue.setPhrase("Хорошо, скиньте еще или нажмите \"Завершить\"");
+        phaseByOneWithCountContinue.setFilesWaitingCount(1);
+        phaseByOneWithCountContinue.setWaitForMessage(true);
+        phaseByOneWithCountContinue.setKeyboardName("byOneWithCountKeyBoard");
+        phaseByOneWithCountContinue.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
+        phaseByOneWithCountContinue.setAdditionalCallbackOnBtn(null);
+        phaseByOneWithCountContinue.setPrevPhaseKey("@repeatPhotos");
+        Phase.save(phaseByOneWithCountContinue);
 
 
         //Введите размер (примерно так: \"14 на 18.7\" или так \"7,5x10\" @sizes
@@ -230,35 +242,94 @@ public class PhasesPusher {
         Phase phaseMoreThanOneErrorByOne = new Phase();
         phaseMoreThanOneErrorByOne.setToSection("$print-photos");
         phaseMoreThanOneErrorByOne.setPhaseKey("@moreThanOneErrorByOne");
-        phaseMoreThanOneErrorByOne.setPhrase("Вы скинули [0] фотографий вместо одной. Пожалуйста, скиньте одну и напишите нужное количество");
+        phaseMoreThanOneErrorByOne.setPhrase("Вы скинули [0] фотографий вместо одной. Пожалуйста, скиньте одну и напишите нужное количество\n(или нажмите \"завершить\", чтобы закончить)");
         phaseMoreThanOneErrorByOne.setFilesWaitingCount(1);
         phaseMoreThanOneErrorByOne.setWaitForMessage(false);
         phaseMoreThanOneErrorByOne.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
         phaseMoreThanOneErrorByOne.setError(true);
+        phaseMoreThanOneErrorByOne.setKeyboardName("afterDownloadingKeyBoard");
         phaseMoreThanOneErrorByOne.setAdditionalCallbackOnBtn(null);
         phaseMoreThanOneErrorByOne.setPrevPhaseKey("@repeatPhotos");
-        phaseMoreThanOneErrorByOne.setNextPhaseKey("@afterDownloadingByOne");
         Phase.save(phaseMoreThanOneErrorByOne);
 
 
-        //Вы не указали количество. Сколько нужно печатать таких фотографий? @warnNoCountHowManyByOne
+        //Сколько нужно печатать таких фотографий? @warnNoCountHowManyByOne
         Phase phaseWarnNoCountHowManyByOne = new Phase();
         phaseWarnNoCountHowManyByOne.setToSection("$print-photos");
         phaseWarnNoCountHowManyByOne.setPhaseKey("@warnNoCountHowManyByOne");
         phaseWarnNoCountHowManyByOne.setPhrase("Вы не указали количество. Сколько нужно печатать таких фотографий?");
         phaseWarnNoCountHowManyByOne.setFilesWaitingCount(0);
         phaseWarnNoCountHowManyByOne.setWaitForMessage(true);
+        phaseWarnNoCountHowManyByOne.setKeyboardName("afterDownloadingKeyBoard");
         phaseWarnNoCountHowManyByOne.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
         phaseWarnNoCountHowManyByOne.setAdditionalCallbackOnBtn(null);
-        phaseMoreThanOneErrorByOne.setPrevPhaseKey("@repeatPhotos");
-        phaseMoreThanOneErrorByOne.setNextPhaseKey("@afterDownloadingByOne");
+        phaseWarnNoCountHowManyByOne.setPrevPhaseKey("@repeatPhotos");
         Phase.save(phaseWarnNoCountHowManyByOne);
 
-        // "скиньте еще или нажмите кнопку \"Готово\"." @afterDownloadingByOne
+
+        //Сообщение отклонено, мы ждем от Вас фотографию @waitForOnePhoto
+        Phase phaseWaitForOnePhoto = new Phase();
+        phaseWaitForOnePhoto.setToSection("$print-photos");
+        phaseWaitForOnePhoto.setPhaseKey("@waitForOnePhoto");
+        phaseWaitForOnePhoto.setPhrase("Сообщение отклонено, мы ждем от Вас фотографию");
+        phaseWaitForOnePhoto.setFilesWaitingCount(1);
+        phaseWaitForOnePhoto.setWaitForMessage(true);
+        phaseWaitForOnePhoto.setKeyboardName("afterDownloadingKeyBoard");
+        phaseWaitForOnePhoto.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
+        phaseWaitForOnePhoto.setAdditionalCallbackOnBtn(null);
+        phaseWaitForOnePhoto.setPrevPhaseKey("@repeatPhotos");
+        Phase.save(phaseWaitForOnePhoto);
+
+        //К сожалению, фотографию такого формата мы напечатать не сможем, скиньте другую или нажмите кнопку @noSupportedFormat
+        Phase phaseNoSupportedFormat = new Phase();
+        phaseNoSupportedFormat.setToSection("$print-photos");
+        phaseNoSupportedFormat.setPhaseKey("@noSupportedFormat");
+        phaseNoSupportedFormat.setPhrase("К сожалению, фотографию такого формата мы напечатать не сможем, скиньте другую или нажмите кнопку \"Завершить\"");
+        phaseNoSupportedFormat.setFilesWaitingCount(1);
+        phaseNoSupportedFormat.setWaitForMessage(true);
+        phaseNoSupportedFormat.setKeyboardName("afterDownloadingKeyBoard");
+        phaseNoSupportedFormat.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
+        phaseNoSupportedFormat.setAdditionalCallbackOnBtn(null);
+        phaseNoSupportedFormat.setPrevPhaseKey("@repeatPhotos");
+        Phase.save(phaseNoSupportedFormat);
+
+        //Мы правильно поняли, что эту фотографию нужно печатать [0] раз? @specificationCount
+        Phase phaseSpecificationCount = new Phase();
+        phaseSpecificationCount.setToSection("$print-photos");
+        phaseSpecificationCount.setPhaseKey("@specificationCount");
+        phaseSpecificationCount.setPhrase("Мы правильно поняли, что эту фотографию нужно печатать [0] раз?");
+        phaseSpecificationCount.setFilesWaitingCount(1);
+        phaseSpecificationCount.setWaitForMessage(true);
+        phaseSpecificationCount.setKeyboardName("specificationCountKeyBoard");
+        phaseSpecificationCount.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
+        phaseSpecificationCount.setAdditionalCallbackOnBtn("");
+        phaseSpecificationCount.setPrevPhaseKey("@repeatPhotos");
+        phaseSpecificationCount.setNextPhaseKey("yes:@byOneWithCountContinue, no:@warnNoCountHowManyByOne");
+
+        Phase.save(phaseSpecificationCount);
+
+
+        //Нам не удалось понять количество. Введите количество этой фотографии еще раз @noRecognizeCountOfPhoto
+        Phase phaseNoRecognizeCountOfPhoto = new Phase();
+        phaseNoRecognizeCountOfPhoto.setToSection("$print-photos");
+        phaseNoRecognizeCountOfPhoto.setPhaseKey("@noRecognizeCountOfPhoto");
+        phaseNoRecognizeCountOfPhoto.setPhrase("Нам не удалось понять количество. Введите количество этой фотографии еще раз");
+        phaseNoRecognizeCountOfPhoto.setFilesWaitingCount(1);
+        phaseNoRecognizeCountOfPhoto.setWaitForMessage(true);
+        phaseNoRecognizeCountOfPhoto.setKeyboardName("afterDownloadingKeyBoard");
+        phaseNoRecognizeCountOfPhoto.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
+        phaseNoRecognizeCountOfPhoto.setAdditionalCallbackOnBtn(null);
+        phaseNoRecognizeCountOfPhoto.setPrevPhaseKey("@repeatPhotos");
+        Phase.save(phaseNoRecognizeCountOfPhoto);
+
+
+
+
+        // "скиньте еще или нажмите кнопку \"Завершить\"." @afterDownloadingByOne
         Phase phaseAfterDownloadingByOne = new Phase();
         phaseAfterDownloadingByOne.setToSection("$print-photos");
         phaseAfterDownloadingByOne.setPhaseKey("@afterDownloading");
-        phaseAfterDownloadingByOne.setPhrase("Cкиньте еще или нажмите кнопку \"Готово\".");
+        phaseAfterDownloadingByOne.setPhrase("Cкиньте еще или нажмите кнопку \"Завершить\".");
         phaseAfterDownloadingByOne.setFilesWaitingCount(1);
         phaseAfterDownloadingByOne.setWaitForMessage(false);
         phaseAfterDownloadingByOne.setKeyboardName("afterDownloadingKeyBoard");
@@ -267,11 +338,11 @@ public class PhasesPusher {
         Phase.save(phaseAfterDownloadingByOne);
 
 
-        // "скиньте еще или нажмите кнопку \"Готово\"." @afterDownloadingByTen
+        // "скиньте еще или нажмите кнопку \"Завершить\"." @afterDownloadingByTen
         Phase phaseAfterDownloadingByTen = new Phase();
         phaseAfterDownloadingByTen.setToSection("$print-photos");
         phaseAfterDownloadingByTen.setPhaseKey("@afterDownloading");
-        phaseAfterDownloadingByTen.setPhrase("Cкиньте еще или нажмите кнопку \"Готово\".");
+        phaseAfterDownloadingByTen.setPhrase("Cкиньте еще или нажмите кнопку \"Завершить\".");
         phaseAfterDownloadingByTen.setFilesWaitingCount(1);
         phaseAfterDownloadingByTen.setWaitForMessage(false);
         phaseAfterDownloadingByTen.setKeyboardName("afterDownloadingKeyBoard");

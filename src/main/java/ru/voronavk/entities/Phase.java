@@ -22,37 +22,37 @@ import java.util.List;
 public class Phase {
     @Id
     @GeneratedValue
-    Integer id;
+    private Integer id;
     @Column(name = "phrase")
-    String phrase;
+    private String phrase;
     @Transient
-    Keyboard answerKeyBoard;
+    private Keyboard answerKeyBoard;
     @Column(name = "keyboard_name")
-    String KeyboardName;
+    private String KeyboardName;
     @Column(name = "to_section")
-    String toSection;
+    private String toSection;
     @Column(name = "phase_key")
-    String phaseKey;
+    private String phaseKey;
     @Column(name = "files_waiting_count")
-    int filesWaitingCount;
+    private int filesWaitingCount;
     @Column(name = "wait_for_message")
-    boolean waitForMessage;
+    private boolean waitForMessage;
     @Column(name = "callback_on_message")
-    String callbackOnMessage;
+    private String callbackOnMessage;
     @Column(name = "additional_callback_on_btn")
-    String additionalCallbackOnBtn;
+    private String additionalCallbackOnBtn;
     //Поля для проверки, которые должны присутствовать, чтобы перейти на эту фазу
     // Поля, которые должны были быть получены на предыдущих фазах. Есть автопроверка
     //Поля к изменению. Можно не писать, если изменением управляет callbackOnMessage или additionalCallbackOnBtn
     @ManyToMany()
-    List<PersonField> fields;
+    private List<PersonField> fields;
 
     @Column(name = "prev_phase_key")
-    String prevPhaseKey;
+    private String prevPhaseKey;
     @Column(name = "next_phase_key")
-    String nextPhaseKey;
+    private String nextPhaseKey;
     @Column(name = "is_error")
-    boolean isError;
+    private boolean isError;
 
 @   ForApi
     public Phase(String phrase, Keyboard answerKeyBoard){
@@ -82,5 +82,10 @@ public class Phase {
         TypedQuery<Phase> query = Hiber.getEntityManager().createQuery(cr);
         return query.getResultList();
 
+    }
+
+    //TODO разобраться с lombok и удалить этот метод
+    public boolean getWaitForMessage() {
+        return waitForMessage;
     }
 }

@@ -205,13 +205,24 @@ public class Buttons {
         List<Button> afterDownloadingButtons = new ArrayList<>();
         //Вы загрузили [1] фотографий, киньте еще или нажмите Завершить
         JsonObject afterDownloadingPayload = new JsonObject();
-        afterDownloadingPayload.addProperty("answer", "no");
-        afterDownloadingButtons.add(new CallbackButton(Button.Color.PRIMARY, new CallbackButton.Action("Готово", afterDownloadingPayload)));
+        afterDownloadingPayload.addProperty("answer", "done");
+        afterDownloadingButtons.add(new CallbackButton(Button.Color.SECONDARY, new CallbackButton.Action("Завершить", afterDownloadingPayload)));
         return afterDownloadingButtons;
     }
 
     public static List<Button> sizesButtons() {
         List<Button> afterDownloadingButtons = new ArrayList<>();
         return afterDownloadingButtons;
+    }
+
+    public static List<Button> specificationCountButtons() {
+        List<Button> specificationCountButtons = new ArrayList<>();
+        JsonObject specificationCountYesPayload = new JsonObject();
+        specificationCountYesPayload.addProperty("answer", "yes");
+        specificationCountButtons.add(new CallbackButton(Button.Color.POSITIVE, new CallbackButton.Action("Да", specificationCountYesPayload)));
+        JsonObject specificationCountNoPayload = new JsonObject();
+        specificationCountNoPayload.addProperty("answer", "no");
+        specificationCountButtons.add(new CallbackButton(Button.Color.NEGATIVE, new CallbackButton.Action("Нет", specificationCountNoPayload)));
+        return specificationCountButtons;
     }
 }

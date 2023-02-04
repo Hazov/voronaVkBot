@@ -41,7 +41,7 @@ public class VkBot extends LongPollBot {
     @Override
     public void onMessageEvent(MessageEvent messageEvent) {
         PrintPhotosResponse printPhotosResponse = null;
-        Person person = getPersonFromEvent(messageEvent);
+        Person person = getPersonFromPeerId(messageEvent.getUserId());
         person = preparePerson(person);
         //Callback на callback-кнопки
         String userAnswer = ApiUtil.getUserAnswer(messageEvent);
@@ -101,11 +101,17 @@ public class VkBot extends LongPollBot {
                  e.printStackTrace();
              }
         } else {
-            Person person = Person.findById(messageNewEvent.getMessage().getPeerId());
-            Phase phase =  person.getState().getPhase();
-            if(phase.getToSection().equals("$print-photos")){
-                printPhotosDialogManager.processMessageOrFiles(messageNewEvent, person);
+
+            try{
+                Person person = getPersonFromPeerId(messageNewEvent.getMessage().getPeerId());
+                Phase phase =  person.getState().getPhase();
+                if(phase.getToSection().equals("$print-photos")){
+                    printPhotosDialogManager.processMessageOrFiles(messageNewEvent, person);
+                }
+            }catch (CannotCreatePersonException e){
             }
+
+
         }
     }
 
@@ -164,14 +170,14 @@ public class VkBot extends LongPollBot {
     }
 
 
-    private Person getPersonFromEvent(MessageEvent messageEvent) throws CannotCreatePersonException {
+    private Person getPersonFromPeerId(int peerId) throws CannotCreatePersonException {
         Get.Response responseUser = null;
         try {
-            responseUser = vkBotsApi.users().get().setUserIds(messageEvent.getUserId()).execute();
+            responseUser = vkBotsApi.users().get().setUserIds(peerId).execute();
         } catch (VkApiException e) {
             e.printStackTrace();
         }
-        Person person = Person.findById(messageEvent.getUserId());
+        Person person = Person.findById(peerId);
         if(person == null){
             person = createUser(responseUser);
         }
