@@ -21,6 +21,7 @@ import ru.voronavk.entities.*;
 import ru.voronavk.exception.UnsupportedTypeForFieldException;
 import ru.voronavk.utils.ApiUtil;
 import ru.voronavk.utils.FilesUtil;
+import ru.voronavk.utils.PhaseUtil;
 import ru.voronavk.utils.dialogs.statics.Phases;
 import ru.voronavk.utils.ButtonsUtil;
 import ru.voronavk.utils.hibernate.Hiber;
@@ -78,6 +79,22 @@ public class PrintPhotosDialogManager {
     }
 
     @ForApi
+    private CallbackResponse applyCountToPhoto(CallBackOnMessageParams callBackOnMessageParams){
+        String answer = callBackOnMessageParams.getMessageText();
+        Person person = callBackOnMessageParams.getPerson();
+        if(answer.equals("no")){
+            DifferentCountPhoto lastDifferentCountPhotoOrder = Person.lastDifferentCountPhotoOrder(person);
+            lastDifferentCountPhotoOrder.setCount(null);
+            new CallbackResponse(true, PhaseUtil.getNextPhaseByAnswer(person.getState().getPhase(), answer));
+        } else if(answer.equals("yes")){
+            new CallbackResponse(true, PhaseUtil.getNextPhaseByAnswer(person.getState().getPhase(), answer));
+        } else {
+            new CallbackResponse(false, person.getState().getPhase());
+        }
+        return null;
+
+    }
+    @ForApi
     private CallbackResponse assignFileOrCountToLastDifferentCountPhoto(CallBackOnMessageParams callBackOnMessageParams){
         //В этом методе ждем и фотку и текст (число фоток)
         Person person = callBackOnMessageParams.getPerson();
@@ -86,13 +103,13 @@ public class PrintPhotosDialogManager {
         Phase phase = person.getState().getPhase();
         //что мы ждем от пользователя (фотку потом сообщение)
         DifferentCountPhoto lastDifferentCountPhotoOrder = Person.lastDifferentCountPhotoOrder(person);
-        //если есть фотка то ждем только текст с количеством
+        //если есть фотка, то ЖДЕМ ТОЛЬКО ТЕКСТ с количеством
         if(lastDifferentCountPhotoOrder.getUrlFile() != null){
             //Ошибка: если не ввел количество
             if(messageText == null || messageText.equals("") || attachments.size() > 0){
                 return new CallbackResponse(false, Phases.aboutPrintPhotos("@warnNoCountHowManyByOne"));
             } else {
-                //пытаемся распознать
+                //пытаемся распознать число
                 CountOfPhotoResponse countOfPhotoResponse = tryRecognizeCountOfPhoto(messageText);
 
                 if(countOfPhotoResponse.getCount() == 0){
@@ -327,6 +344,7 @@ public class PrintPhotosDialogManager {
         Phase nextPhase = defineNextPhase(person, userAnswer);
         int personId = Integer.parseInt(String.valueOf(person.getId()));
         changeFieldByAnswer(userAnswer, person);
+
         int messageId;
         Send.Response response = null;
         try {
@@ -350,24 +368,42 @@ public class PrintPhotosDialogManager {
     }
 
     private void changeFieldByAnswer(String userAnswer, Person person) {
-        //TODO пока что сделано только для одного поля
-        List<PersonField> fieldsToChange = Person.getFieldsToChange(person);
-        fieldsToChange.forEach(f -> {
-            try{
-                String className = "ru.voronavk.entities." + f.getClassName();
-                String setterName = f.getSetter();
-                Class<?> aClass = Class.forName(className);
-                Method setter = Finder.findMethodByName(aClass, setterName);
-                Object entity = Finder.findEntityInPerson(person, aClass);
-                String type = f.getType();
-                Object answer = castAnswerToType(userAnswer,type);
-                applySetter(setter, entity, answer);
-                Hiber.save(entity);
-                Person.save(person);
-            }catch (Exception e){
-e.printStackTrace();
+        Phase currentPhase = person.getState().getPhase();
+        if(currentPhase.getFields() != null && currentPhase.getFields().size() > 0){
+            //TODO пока что сделано только для одного поля
+            List<PersonField> fieldsToChange = Person.getFieldsToChange(person);
+            fieldsToChange.forEach(f -> {
+                try{
+                    String className = "ru.voronavk.entities." + f.getClassName();
+                    String setterName = f.getSetter();
+                    Class<?> aClass = Class.forName(className);
+                    Method setter = Finder.findMethodByName(aClass, setterName);
+                    Object entity = Finder.findEntityInPerson(person, aClass);
+                    String type = f.getType();
+                    Object answer = castAnswerToType(userAnswer,type);
+                    applySetter(setter, entity, answer);
+                    Hiber.save(entity);
+                    Person.save(person);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            });
+        }
+        if(currentPhase.getAdditionalCallbackOnBtn() != null){
+            String callbackName = currentPhase.getAdditionalCallbackOnBtn();
+            Class<? extends PrintPhotosDialogManager> thisClass = this.getClass();
+            Method[] declaredMethods = thisClass.getDeclaredMethods();
+            Method callback = Arrays.stream(declaredMethods).filter(m -> m.getName().equals(callbackName)).collect(Collectors.toList()).get(0);
+            try {
+                CallBackOnMessageParams callBackOnMessageParams = new CallBackOnMessageParams(person, userAnswer, null);
+                Object invoke = callback.invoke(this, callBackOnMessageParams);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        });
+
+
+        }
+
 
     }
 

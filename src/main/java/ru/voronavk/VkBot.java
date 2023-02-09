@@ -36,7 +36,7 @@ public class VkBot extends LongPollBot {
     PrintPhotosDialogManager printPhotosDialogManager = new PrintPhotosDialogManager(vkBotsApi);
 
 
-    public String[] makeOrderMatches = {"1","c","сделать заказ", "заказать", "меню", "начать"};
+    public String[] makeOrderMatches = {"c","сделать заказ", "заказать", "меню", "начать"};
     @SneakyThrows
     @Override
     public void onMessageEvent(MessageEvent messageEvent) {

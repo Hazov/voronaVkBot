@@ -174,7 +174,7 @@ public class PhasesPusher {
         //Хорошо, скиньте еще или нажмите "Завершить" @byOneWithCountContinue
         Phase phaseByOneWithCountContinue = new Phase();
         phaseByOneWithCountContinue.setToSection("$print-photos");
-        phaseByOneWithCountContinue.setPhaseKey("@byOneWithCount");
+        phaseByOneWithCountContinue.setPhaseKey("@byOneWithCountContinue");
         phaseByOneWithCountContinue.setPhrase("Хорошо, скиньте еще или нажмите \"Завершить\"");
         phaseByOneWithCountContinue.setFilesWaitingCount(1);
         phaseByOneWithCountContinue.setWaitForMessage(true);
@@ -298,11 +298,10 @@ public class PhasesPusher {
         phaseSpecificationCount.setToSection("$print-photos");
         phaseSpecificationCount.setPhaseKey("@specificationCount");
         phaseSpecificationCount.setPhrase("Мы правильно поняли, что эту фотографию нужно печатать [0] раз?");
-        phaseSpecificationCount.setFilesWaitingCount(1);
-        phaseSpecificationCount.setWaitForMessage(true);
+        phaseSpecificationCount.setFilesWaitingCount(0);
+        phaseSpecificationCount.setWaitForMessage(false);
         phaseSpecificationCount.setKeyboardName("specificationCountKeyBoard");
-        phaseSpecificationCount.setCallbackOnMessage("assignFileOrCountToLastDifferentCountPhoto");
-        phaseSpecificationCount.setAdditionalCallbackOnBtn("");
+        phaseSpecificationCount.setAdditionalCallbackOnBtn("applyCountToPhoto");
         phaseSpecificationCount.setPrevPhaseKey("@repeatPhotos");
         phaseSpecificationCount.setNextPhaseKey("yes:@byOneWithCountContinue, no:@warnNoCountHowManyByOne");
 
